@@ -10,16 +10,19 @@ import {
   Segment,
   Label,
 } from 'semantic-ui-react';
+import InfiniteScroll from 'react-infinite-scroller';
+
 
 
 class Beers extends React.Component {
-  state = { beers: [] };
+  state = { beers: [], page: 1 };
 
   componentDidMount = () => {
-    axios.get('/api/all_beers').then((res) => {
-      const { entries } = res.data;
+    axios.get('/api/all_beers?page=10&per_page=10').then((res) => {
+      const { entries, page } = res.data;
       this.setState({
         beers: entries,
+        page: page + 1,
       })
     })
   }
@@ -58,12 +61,18 @@ class Beers extends React.Component {
    }
 
   render() {
+    const {page} = this.state;
     return (
       <div>
         <Image src='http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/4j/m4/p04jm4h3.jpg' fluid />
-        <Container>
-          {this.listBeers()}
-        </Container>
+        <InfiniteScroll
+          loadMore={this.componentDidMount()}
+          hasMore={page < 10}
+          useWindow={false}>
+          <Container>
+            {this.listBeers()}
+          </Container>
+        </InfiniteScroll>
       </div>
     )
   }
