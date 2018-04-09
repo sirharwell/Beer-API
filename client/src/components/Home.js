@@ -5,17 +5,7 @@ import axios from 'axios';
 import dpsLogo from '../images/dpsLogo.svg';
 
 class Home extends Component {
-  state = { assignmentMarkdown: '' };
-
-  componentDidMount() {
-    axios.get('/api/assignment_details')
-      .then(res => {
-        this.setState({ assignmentMarkdown: res.data.file })
-      })
-      .catch( error => {
-        console.log(error.response);
-    });
-  }
+  state = { }
 
   render() {
     return(
@@ -31,10 +21,9 @@ class Home extends Component {
                 as='h1'
                 textAlign='center'
                 style={styles.header}>
-                  Assessment Details:
+                  Beer
               </Header>
               <Divider />
-              <ReactMarkDown source={this.state.assignmentMarkdown} />
             </Segment>
           </Grid.Column>
           <Grid.Column computer={8} tablet={8} mobile={16}>
@@ -43,15 +32,9 @@ class Home extends Component {
                 as='h1'
                 textAlign='center'
                 style={styles.header}>
-                  Assessment API Endpoints:
+                  Breweries
               </Header>
               <Divider />
-              <iframe
-                style={styles.iframe}
-                title='Assignment README.md'
-                frameBorder={0}
-                src='http://localhost:3001/rails/info/routes'
-              />
             </Segment>
           </Grid.Column>
         </Grid>
@@ -61,10 +44,6 @@ class Home extends Component {
 }
 
 const styles = {
-  iframe: {
-    width: '100%',
-    height: '100vh'
-  },
   centered: {
     margin: '0 auto',
   },
