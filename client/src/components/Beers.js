@@ -13,7 +13,6 @@ import {
 import InfiniteScroll from 'react-infinite-scroller';
 
 
-
 class Beers extends React.Component {
   state = { beers: [], page: 1 };
 
@@ -67,7 +66,8 @@ class Beers extends React.Component {
         <Image src='http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/4j/m4/p04jm4h3.jpg' fluid />
         <InfiniteScroll
           loadMore={this.componentDidMount()}
-          hasMore={page < 10}
+          hasMore={true || false}
+          loader={<div className="loader" key={0}>Loading ...</div>}
           useWindow={false}>
           <Container>
             {this.listBeers()}
