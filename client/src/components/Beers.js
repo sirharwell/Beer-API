@@ -65,10 +65,11 @@ class Beers extends React.Component {
       <div>
         <Image src='http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/4j/m4/p04jm4h3.jpg' fluid />
         <InfiniteScroll
-          loadMore={this.componentDidMount()}
-          hasMore={true || false}
-          loader={<div className="loader" key={0}>Loading ...</div>}
-          useWindow={false}>
+            pageStart={0}
+            loadMore={loadFunc}
+            hasMore={true || false}
+            loader={<div className="loader" key={0}>Loading ...</div>}
+        >
           <Container>
             {this.listBeers()}
           </Container>
