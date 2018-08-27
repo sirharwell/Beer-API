@@ -18,7 +18,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/Beers' component={Beers} />
           <Route exact path='/Breweries' component={Breweries} />
-          <Route component={NoMatch} />
+          <Route component={NoMatch} '/Home'>
         </Switch>
       </Segment>
     );
