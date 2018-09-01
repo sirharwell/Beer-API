@@ -64,12 +64,11 @@ class Beers extends React.Component {
     return (
       <div>
         <Image src='http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/4j/m4/p04jm4h3.jpg' fluid />
-        <InfiniteScroll
-            pageStart={0}
-            loadMore={loadFunc}
-            hasMore={true || false}
-            loader={<div className="loader" key={0}>Loading ...</div>}
-        >
+          <InfiniteScroll
+            loadMore={this.loadMore}
+            hasMore={page < total_pages}
+            useWindow={false}>
+            <Grid>
           <Container>
             {this.listBeers()}
           </Container>
