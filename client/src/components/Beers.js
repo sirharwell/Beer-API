@@ -45,7 +45,7 @@ class Beers extends React.Component {
           <Item>
             {this.hasLabel(beer)}
             <Item.Content>
-              <Item.Header style={styles.header}>{beer.name}</Item.Header>
+              <Item.Header style={styles.header}>{beer.name} is best</Item.Header>
               <Item.Meta style={styles.header}>Description</Item.Meta>
               <Item.Description style={styles.header}>
                 {beer.description}
