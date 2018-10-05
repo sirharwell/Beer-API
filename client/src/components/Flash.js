@@ -16,7 +16,7 @@ const Flash = ({ flash, dispatch }) => {
       <div
         id='alert'
         className={`alert alert-${flash.msgType}`}
-        style={{ width: '90%', margin: '0 auto'}}
+        style={{ width: '95%', margin: '0 auto'}}
       >
         { flash.message }
         { fadeFlash(dispatch) }
